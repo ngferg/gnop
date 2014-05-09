@@ -13,7 +13,7 @@ function instruct(){
 var sound = true;
 var diff = .925;
 
-function artScreen(){
+$(document).ready(function(){
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	ctx.fillStyle = "#000000";
@@ -21,7 +21,7 @@ function artScreen(){
 	ctx.fillStyle = "#FFFFFF";
 	ctx.font = "100px Arial";
 	ctx.fillText("GNOP!", 160, 280);
-}
+});
 
 function toggleSound(){
 	var soundB = document.getElementById("soundButton");
