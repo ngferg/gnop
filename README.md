@@ -18,6 +18,6 @@ How to play
 -----------
 
 Player 1 moves up and down with the W & S keys, Player 2 moves up and down with the up and down arrows.  
-You can always play the most up to date, table version at 
+You can always play the most up to date, stable version at 
 
 http://rawgit.com/fergBurglerr/gnop/master/gnop.html
