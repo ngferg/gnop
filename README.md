@@ -1,4 +1,13 @@
 gnop
 ====
+html5 pong game, written by Nicholaus Ferguosn at the University of Missouri -- Columbia.  
 
-html5 gnop game
+
+Description
+====
+Gnop is written in HTML5 and Javascript, with graphics all done in an html5 canvas.  There are some minor errors throught this project that I am looking at fixing, and will sometimes try to add fun features to the game.  Open Sourced for your enjoyment.  Feel free to leave feedback and reccomendations.  
+
+
+How to play
+====
+Player 1 moves up and down with w & s, Player 2 moves up and down with the up and down arrows.  You can always play the most up to date, stable version at http://rawgit.com/fergBurglerr/gnop/master/gnop.html
