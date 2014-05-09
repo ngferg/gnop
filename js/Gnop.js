@@ -18,13 +18,13 @@ $(document).ready(function(){
 });
 
 function toggleSound(){
-	var soundB = document.getElementById("soundButton");
+	var soundB = $("#soundButton");
 	if(sound){
 		sound = false;
-		soundB.style.backgroundColor = "rgb(255, 160, 122)";
+		soundB.css('background-color', 'rgb(255, 160, 122)');
 	} else{
 		sound = true;
-		soundB.style.backgroundColor = "rgb(144, 238, 144)";
+		soundB.css('background-color', 'rgb(144, 238, 144)');
 	}
 	//console.log(sound);
 }
