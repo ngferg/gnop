@@ -110,10 +110,9 @@ function game(){
 		ctx.fillText("P1: " + p1.score, 10, 473);
 		ctx.fillText("P2: " + p2.score, 580, 473);
 	}
-	var hc = document.getElementById("h1but");
-	p1 = new player(10, 10, hc.checked);
-	var hc = document.getElementById("h2but");
-	p2 = new player(615, 380, hc.checked);
+
+	p1 = new player(10, 10, $('#h1but').is(':checked'));
+	p2 = new player(615, 380, $('#h2but').is(':checked'));
 	
 	function ball(x, y, dx, dy){
 		
