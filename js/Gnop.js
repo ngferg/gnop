@@ -1,9 +1,3 @@
-function instruct(){
-	alert("Welcome To Gnop!\nThe Goal of this game is to get the ball off the other player's side of the screen\nThe game is played to 9 points");
-	alert("Player one controls with the 'w', 's', & 'd' key for up, down, & speed up respectively.\nPlayer two controls with the up, down, and left arrow keys.");
-	alert("Enjoy!  ;^)");
-}
-
 var sound = true;
 var diff = .925;
 
@@ -26,6 +20,12 @@ $(document).ready(function(){
 			soundB.css('background-color', 'rgb(144, 238, 144)');
 		}
 		//console.log(sound);
+	});
+
+	$('#instruct').click(function(){
+		alert("Welcome To Gnop!\nThe Goal of this game is to get the ball off the other player's side of the screen\nThe game is played to 9 points");
+		alert("Player one controls with the 'w', 's', & 'd' key for up, down, & speed up respectively.\nPlayer two controls with the up, down, and left arrow keys.");
+		alert("Enjoy!  ;^)");				
 	});
 });
 
