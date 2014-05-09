@@ -225,7 +225,7 @@ function start(){
 	if(startButton.disabled == false){
 		startButton.disabled = true;
 		game();
-		document.getElementById("speed").innerHTML = Math.floor(document.getElementById("gameSpeed").value);
+		$("#speed").html(Math.floor($("#gameSpeed").val()));
 		dArray = document.getElementsByName("diff");
 		for(var i = 0; i < dArray.length; i++){
 			if(dArray[i].checked)
