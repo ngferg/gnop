@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Gnop!</title>
+		<script src="js/Gnop.js"></script>
+		<style>
+			*{
+				margin: 1px auto;
+			}
+			canvas#myCanvas{
+				border: 1px solid black;
+			}
+			div#canvasDiv{
+				width: 640px;
+				height: 480px;
+			}
+			div#buttons{
+				margin-top: 40px;
+				text-align: center;
+			}
+			button#soundButton{
+				background-color: lightgreen;
+			}
+			div{
+				padding: 1px;
+				border: 1px solid black;
+				width: 250px;
+			}
+			table#diffTable{
+				border-collapse: collapse;
+			}	
+		</style>
+		
+		<audio id="sound"> 
+			<source src="audio/bing.wav" type="audio/wav" id="bing">
+		</audio>
+		<audio id="score">
+			<source src="audio/accessGranted.wav" type="audio/wav" id="accessGranted">
+		</audio>
+		<audio id="gameOverSound">
+			<source src="audio/pongOver.wav" type="audio/wav">
+		</audio>
+	</head>
+	
+	<body onload="artScreen()">
+		
+		
+		<div id="canvasDiv" onclick="start();">
+			<canvas id="myCanvas" width="640" height="480"></canvas>
+			<button type="button" id="start" onclick="start()">Start!</button>
+			<button type="button" id="instruct" onclick="instruct()"><b>Instructions</b></button>
+			<button type="button" id="soundButton" onclick="toggleSound()">Toggle Sound</button>
+			<button type="button" id="reset" onclick="location.reload()">Reset</button>
+		</div>
+		
+		<div id="buttons">
+			<div id="player1">
+				<form action="gnop.html" method="post" id="form">
+					 Player 1 is a:<br>
+					 <input type="radio" name="Human1" value="true" id="h1but" checked><label for="h1but">Human</label>
+					 <input type="radio" name="Human1" value="false" id="cpu1but"><label for="cpu1but">Computer</label>
+				</form>
+			</div>
+			<div id="player2">
+				<form action="gnop.html" method="post">
+					 Player 2 is a:<br>
+					 <input type="radio" name="Human2" value="true" id="h2but"><label for="h2but">Human</label>
+					 <input type="radio" name="Human2" value="false" id="cpu2but" checked><label for="cpu2but">Computer</label>
+				</form>
+			</div>
+			<div>
+				Game Speed:<p id="speed"><br>
+				min(10)<input type="range" name="gameSpeed" id="gameSpeed" min="10" max="1000" value="90">max(1000)</p>
+			</div>
+			<div>
+			<table border="1px solid black" id="diffTable">
+				<tr><th colspan="2">
+				CPU Difficulty:</th></tr>
+				<tr>
+				<td><input type="radio" name="diff" value=".99" id="babby"><label for="babby">BABBY MODE</label></td>
+				<td><input type="radio" name="diff" value=".95" id="easy"><label for="easy">Easy</label></td></tr>
+				<tr><td><input type="radio" name="diff" value=".925" id="med" checked><label for="med">Very Medium</label></td>
+				<td><input type="radio" name="diff" value=".9" id="hard"><label for="hard">Hard</label><br></td></tr>
+				<tr><td><input type="radio" name="diff" value=".85" id="vhard"><label for="vhard">Very Hard</label></td>
+				<td><input type="radio" name="diff" value ="0"  id="impos"><label for="impos">Literally impossible</label></td></tr>
+			</table>
+			</div>
+		</div>
+	</body>
+</html>
