@@ -1,3 +1,9 @@
+var SHAPE = {
+	RECTANGLE :0, 
+	BALL: 1
+};
+Object.freeze(SHAPE);
+
 function instruct(){
 	alert("Welcome To Gnop!\nThe Goal of this game is to get the ball off the other player's side of the screen\nThe game is played to 9 points");
 	alert("Player one controls with the 'w', 's', & 'd' key for up, down, & speed up respectively.\nPlayer two controls with the up, down, and left arrow keys.");
@@ -29,7 +35,11 @@ function toggleSound(){
 	//console.log(sound);
 }
 
+
 function game(){
+
+
+
 	var bing = document.getElementById("sound");
 	var scoreSound = document.getElementById("score")
 	var c = document.getElementById("myCanvas");
@@ -45,25 +55,41 @@ function game(){
 	ctx.fillText("P2: 0", 580, 473);
 	ctx.fillRect(0, 451, 640, 2)
 	
+	function draw(){
+		ctx.fillStyle = "#FFFFFF";
+		fillShape(this.x, this.y, this.shape);
+	}
+	
+	function erase(){
+		ctx.fillStyle = "#000000";
+		fillShape(this.x, this.y, this.shape);
+	}
+	
+	function fillShape(x,y,shape){
+		if(shape == SHAPE.RECTANGLE){
+			ctx.fillRect(x, y, 15, 60);
+		}else if(shape == SHAPE.BALL){
+			console.log("ball");
+			ctx.fillRect(x, y, 10, 10);
+		}	
+
+	}
+	
 	function player(x, y, human){
 		this.x = x;
 		this.y = y;
 		this.human = human;
 		this.score = 0;
-		this.draw = function(bool){
-			if(bool)
-				ctx.fillStyle = "#FFFFFF";
-			else
-				ctx.fillStyle = "#000000";
-			ctx.fillRect(this.x, this.y, 15, 60);
-		}
+		this.shape = SHAPE.RECTANGLE;
+		this.draw = draw;
+		this.erase = erase;
 		this.move = function(bool){              // bool true = +   false = -
-			this.draw(false);
+			this.erase();
 			if(!bool && this.y > 0)
 				this.y -= 10;
 			else if(bool && this.y < 390)
 				this.y += 10;
-			this.draw(true);
+			this.draw();
 			//console.log("player moved!");
 		}
 		this.check = function(){
@@ -91,13 +117,7 @@ function game(){
 	p2 = new player(615, 380, hc.checked);
 	
 	function ball(x, y, dx, dy){
-		this.draw = function(bool){  // bool true = draw  false = erase
-			if(bool)
-				ctx.fillStyle = "#FFFFFF";
-			else
-				ctx.fillStyle = "#000000";
-			ctx.fillRect(this.x, this.y, 10, 10);
-		}
+		
 		this.resetBall = function(){
 			this.x = 315;
 			this.y = Math.floor((Math.random() * 400) + 25);
@@ -113,8 +133,14 @@ function game(){
 				this.dy = false;
 		}
 		this.resetBall();
+		this.shape = SHAPE.BALL;
+		
+		
+		this.draw = draw;
+		this.erase = erase;
+
 		this.move = function(){
-			this.draw(false);
+			this.erase();
 			if(!this.dy && this.y > 0)
 				this.y -= 1;
 			else if(this.dy && this.y < 440)
@@ -165,7 +191,7 @@ function game(){
 				}
 				this.resetBall();
 			}
-			this.draw(true);
+			this.draw();
 		}
 	}
 	
