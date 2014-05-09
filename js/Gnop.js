@@ -15,19 +15,19 @@ $(document).ready(function(){
 	ctx.fillStyle = "#FFFFFF";
 	ctx.font = "100px Arial";
 	ctx.fillText("GNOP!", 160, 280);
-});
 
-function toggleSound(){
-	var soundB = $("#soundButton");
-	if(sound){
-		sound = false;
-		soundB.css('background-color', 'rgb(255, 160, 122)');
-	} else{
-		sound = true;
-		soundB.css('background-color', 'rgb(144, 238, 144)');
-	}
-	//console.log(sound);
-}
+	$('#soundButton').click(function(){
+		var soundB = $("#soundButton");
+		if(sound){
+			sound = false;
+			soundB.css('background-color', 'rgb(255, 160, 122)');
+		} else{
+			sound = true;
+			soundB.css('background-color', 'rgb(144, 238, 144)');
+		}
+		//console.log(sound);
+	});
+});
 
 function game(){
 	var bing = document.getElementById("sound");
