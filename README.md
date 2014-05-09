@@ -8,7 +8,7 @@ Description
 -----------
 
 Gnop is a javascript interpretation of the popular game pong.
-It is written in HTML5 and Javascript, with graphics all done in an html5 canvas.
+It is written in HTML5 and Javascript (with some help from the jQuery library) with graphics all done in an html5 canvas.
 There are some minor errors throught this project that I am looking at fixing,
 and will sometimes try to add fun features to the game.  Open Sourced for your enjoyment.
 Feel free to leave feedback and reccomendations.
