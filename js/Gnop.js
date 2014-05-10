@@ -32,13 +32,13 @@ $(document).ready(function(){
 		alert("Player one controls with the 'w', 's', & 'd' key for up, down, & speed up respectively.\nPlayer two controls with the up, down, and left arrow keys.");
 		alert("Enjoy!  ;^)");				
 	});
+
 });
 
 
 function game(){
-
-
-
+	$('#canvasDiv').focus();
+	$('*').keydown(function(e){checkInput(e)});
 	var bing = document.getElementById("sound");
 	var scoreSound = document.getElementById("score");
 	var c = document.getElementById("myCanvas");
@@ -193,26 +193,26 @@ function game(){
 		}
 	}
 	
-	function checkInput(){
+	function checkInput(e){
 		if(running){
-			var event = window.event;
-			//console.log("Input Checked!");
-			//console.dir(event);
-			if(event.keyCode == 83 && p1.human == true)
+			//console.dir(e);
+			if(e.which == 83 && p1.human)
 				p1.move(true);
-			else if(event.keyCode == 87 && p1.human == true)
+			if(e.which == 87 && p1.human)
 				p1.move(false);
-			else if(event.keyCode == 40 && p2.human == true)
+			if(e.which == 40 && p2.human)
 				p2.move(true);
-			else if(event.keyCode == 38 && p2.human == true)
+			if(e.which == 38 && p2.human)
 				p2.move(false);
-			else if(event.keyCode == 81 || event.keyCode == 27)
+			if(e.which == 81 || e.which == 27)
 				running = false;
-			else if((event.keyCode == 68 && p1.human == true) || (event.keyCode == 37 && p2.human == true)){
+			if((e.which == 68 && p1.human) || (e.which == 37 && p2.human)){
 				b.move();
 				b.move();
 			}
+			e.stopPropagation();
 		}
+		return false;
 	}
 	
 	b = new ball();
@@ -227,9 +227,6 @@ function game(){
 		p1.check();
 		p2.check();
 		frame++;
-		document.onkeydown = function(){
-			checkInput();
-		};
 		//console.log("frame=" + frame + " b.x=" + b.x + " b.y=" + b.y);
 		if(!running){
 			var gameOverSound = document.getElementById("gameOverSound");
