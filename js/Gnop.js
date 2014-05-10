@@ -68,7 +68,7 @@ function game(){
 		if(shape == SHAPE.RECTANGLE){
 			ctx.fillRect(x, y, 15, 60);
 		}else if(shape == SHAPE.BALL){
-			console.log("ball");
+			//console.log("ball");
 			ctx.fillRect(x, y, 10, 10);
 		}
 
