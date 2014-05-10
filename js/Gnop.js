@@ -238,7 +238,7 @@ function game(){
 			clearInterval(gameLoop);
 		}
 		
-	}, (1000 / $("#gameSpeed").val()));
+	}, (1000 / $("#speed").html()));
 		
 }
 
@@ -246,8 +246,8 @@ function start(){
 	var startButton = document.getElementById("start");
 	if(startButton.disabled == false){
 		startButton.disabled = true;
-		game();
 		$("#speed").html(Math.floor($("#gameSpeed").val()));
-		diff = parseFloat($("input[type='radio'][name='diff']:checked").val()); 
+		diff = parseFloat($("input[type='radio'][name='diff']:checked").val());
+		game();
 	}
 }
