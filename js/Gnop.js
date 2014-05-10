@@ -238,7 +238,7 @@ function game(){
 			clearInterval(gameLoop);
 		}
 		
-	}, (1000 / document.getElementById("gameSpeed").value));
+	}, (1000 / $("#gameSpeed").val()));
 		
 }
 
