@@ -243,9 +243,9 @@ function game(){
 }
 
 function start(){
-	var startButton = document.getElementById("start");
-	if(startButton.disabled == false){
-		startButton.disabled = true;
+	var startButton = $("#start");
+	if(!startButton.attr('disabled')){
+		startButton.attr('disabled', 'disabled');
 		$("#speed").html(Math.floor($("#gameSpeed").val()));
 		diff = parseFloat($("input[type='radio'][name='diff']:checked").val());
 		game();
