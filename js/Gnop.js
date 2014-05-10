@@ -248,12 +248,6 @@ function start(){
 		startButton.disabled = true;
 		game();
 		$("#speed").html(Math.floor($("#gameSpeed").val()));
-		dArray = document.getElementsByName("diff");
-		for(var i = 0; i < dArray.length; i++){
-			if(dArray[i].checked)
-				diff=dArray[i].value;
-			dArray[i].disabled="true";
-		}
-		diff = parseFloat(diff);
+		diff = parseFloat($("input[type='radio'][name='diff']:checked").val()); 
 	}
 }
