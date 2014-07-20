@@ -216,9 +216,9 @@ function game(){
 	}
 	
 	b = new ball();
-	p1.draw(true);
-	p2.draw(true);
-	b.draw(true);
+	p1.draw();
+	p2.draw();
+	b.draw();
 	
 	var frame = 0;
 	
