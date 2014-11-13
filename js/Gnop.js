@@ -4,8 +4,9 @@ var SHAPE = {
 };
 Object.freeze(SHAPE);
 //get sound setting from local storage
-var sound = localStorage.getItem("sound");
+var sound = (localStorage.getItem("sound") === 'true');
 if(localStorage.getItem("sound") === null){
+	//console.log("no local storage! \ninitializing...");
 	sound = true;
 	localStorage.setItem("sound", sound);	
 }
@@ -19,6 +20,11 @@ $(document).ready(function(){
 	ctx.fillStyle = "#FFFFFF";
 	ctx.font = "100px Arial";
 	ctx.fillText("GNOP!", 160, 280);
+	if(!sound){
+		$("#soundButton").css('background-color', 'rgb(255, 160, 122)');
+	} else {
+		$("#soundButton").css('background-color', 'rgb(144, 238, 144)');
+	}	
 
 	$('#soundButton').click(function(){
 		var soundB = $("#soundButton");
@@ -30,8 +36,8 @@ $(document).ready(function(){
 			soundB.css('background-color', 'rgb(144, 238, 144)');
 		}
 		localStorage.setItem("sound", sound);
-		//console.log(sound);
-	}()); //these open and close paratheses with nothing in them signals an imediatley invoked function call, so this function is called right after it is created, and can be called later as well
+		console.log(sound);
+	});
 
 	$('#instruct').click(function(){
 		alert("Welcome To Gnop!\nThe Goal of this game is to get the ball off the other player's side of the screen\nThe game is played to 9 points");
