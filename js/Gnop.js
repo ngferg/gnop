@@ -3,7 +3,12 @@ var SHAPE = {
 	BALL: 1
 };
 Object.freeze(SHAPE);
-var sound = true;
+//get sound setting from local storage
+var sound = localStorage.getItem("sound");
+if(localStorage.getItem("sound") === null){
+	sound = true;
+	localStorage.setItem("sound", sound);	
+}
 var diff = .925;
 
 $(document).ready(function(){
@@ -24,8 +29,9 @@ $(document).ready(function(){
 			sound = true;
 			soundB.css('background-color', 'rgb(144, 238, 144)');
 		}
+		localStorage.setItem("sound", sound);
 		//console.log(sound);
-	});
+	}()); //these open and close paratheses with nothing in them signals an imediatley invoked function call, so this function is called right after it is created, and can be called later as well
 
 	$('#instruct').click(function(){
 		alert("Welcome To Gnop!\nThe Goal of this game is to get the ball off the other player's side of the screen\nThe game is played to 9 points");
