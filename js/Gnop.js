@@ -6,6 +6,9 @@ Object.freeze(SHAPE);
 //get sound setting from local storage, initialize to true if there is none
 var sound = (localStorage.getItem("sound") !== 'false');
 localStorage.setItem("sound", sound);
+if(localStorage.getItem("speed") > 0)
+	$('#gameSpeed').val(localStorage.getItem("speed"));
+
 var diff = .925;
 
 $(document).ready(function(){
@@ -251,6 +254,7 @@ function start(){
 	var startButton = $("#start");
 	if(!startButton.attr('disabled')){
 		startButton.attr('disabled', 'disabled');
+		localStorage.setItem("speed", $("#gameSpeed").val());
 		$("#speed").html(Math.floor($("#gameSpeed").val()));
 		diff = parseFloat($("input[type='radio'][name='diff']:checked").val());
 		game();
