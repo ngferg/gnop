@@ -3,13 +3,9 @@ var SHAPE = {
 	BALL: 1
 };
 Object.freeze(SHAPE);
-//get sound setting from local storage
-var sound = (localStorage.getItem("sound") === 'true');
-if(localStorage.getItem("sound") === null){
-	//console.log("no local storage! \ninitializing...");
-	sound = true;
-	localStorage.setItem("sound", sound);	
-}
+//get sound setting from local storage, initialize to true if there is none
+var sound = (localStorage.getItem("sound") !== 'false');
+localStorage.setItem("sound", sound);
 var diff = .925;
 
 $(document).ready(function(){
