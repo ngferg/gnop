@@ -6,12 +6,12 @@ Object.freeze(SHAPE);
 //get sound setting from local storage, initialize to true if there is none
 var sound = (localStorage.getItem("sound") !== 'false');
 localStorage.setItem("sound", sound);
-if(localStorage.getItem("speed") > 0)
-	$('#gameSpeed').val(localStorage.getItem("speed"));
 
 var diff = .925;
 
 $(document).ready(function(){
+	if(parseInt(localStorage.getItem("speed")) > 0)
+		$('#gameSpeed').val(parseInt(localStorage.getItem("speed")));
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	ctx.fillStyle = "#000000";
