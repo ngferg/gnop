@@ -260,3 +260,8 @@ function start(){
 		game();
 	}
 }
+
+function clearLocalStorage(){
+	window.localStorage.clear();
+	location.reload(true);
+}
